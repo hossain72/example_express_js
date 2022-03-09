@@ -22,3 +22,11 @@ exports.updatePost = async (req, res) => {
   );
   res.status(200).json(singlePostUpdate);
 };
+
+exports.deletePost = async (req, res) => {
+  const deleteSinglePost = await Post.findByIdAndDelete(req.params.id);
+  res.status(200).json({
+    status: "success",
+    message : "Your Post is deleted"
+  });
+};
