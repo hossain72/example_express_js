@@ -1,6 +1,8 @@
 const Post = require("../model/post.model");
 
 exports.createPost = async (request, respose) => {
+  //request.query.date;
+  console.log(request.query.date);
   const newPost = await Post.create(request.body);
   respose.status(201).json(newPost);
 };
@@ -27,6 +29,8 @@ exports.deletePost = async (req, res) => {
   const deleteSinglePost = await Post.findByIdAndDelete(req.params.id);
   res.status(200).json({
     status: "success",
-    message : "Your Post is deleted"
+    message: "Your Post is deleted",
   });
 };
+
+
